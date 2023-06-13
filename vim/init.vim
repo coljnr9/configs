@@ -34,6 +34,9 @@ Plug 'Mofiqul/dracula.nvim'
 " Line limit hint.
 Plug 'Yggdroot/indentLine'
 
+" Comment out code
+Plug 'tpope/vim-commentary'
+
 " Initialize the plugin system.
 call plug#end()
 
