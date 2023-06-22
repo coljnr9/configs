@@ -6,17 +6,15 @@ call plug#begin('~/.config/nvim/plugged')
 " Plug 'repository/plugin', {'option': 'value'} format for installing plugins.
 " Note: Run :PlugInstall in Vim to actually install these plugins.
 
-" Vim enchancements
+" Vim enhancements
 Plug 'itchyny/lightline.vim'
 Plug 'andymass/vim-matchup'
 
 " Telescope + deps
-Plug 'BurntSushi/ripgrep'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
-Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 
 " Rust
 Plug 'rust-lang/rust.vim'
@@ -119,8 +117,8 @@ endif
 
 " Find files using Telescope command-line sugar.
 " From the telescope github README
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>ff <cmd>Telescope find_files hidden=true no-ignore=true prompt_prefix=🔍<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep hidden=true no-ignore=true prompt_prefix=🔍<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
