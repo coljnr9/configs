@@ -117,9 +117,9 @@ endif
 
 " Find files using Telescope command-line sugar.
 " From the telescope github README
-nnoremap <leader>ff <cmd>Telescope find_files hidden=true no-ignore=true prompt_prefix=🔍<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep hidden=true no-ignore=true prompt_prefix=🔍<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>ff <cmd>Telescope find_files prompt_prefix=🔍<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep prompt_prefix=🔍<cr>
+nnoremap <leader>fb <cmd>Telescope buffers prompt_prefix=🔍<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Apply code suggestions (I think Coc?)
