@@ -35,6 +35,9 @@ Plug 'Yggdroot/indentLine'
 " Comment out code
 Plug 'tpope/vim-commentary'
 
+" Vim code screenshotter
+Plug 'SergioRibera/vim-screenshot', { 'do': 'npm install --prefix Renderizer' }
+
 " Initialize the plugin system.
 call plug#end()
 
