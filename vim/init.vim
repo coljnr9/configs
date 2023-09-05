@@ -21,6 +21,9 @@ Plug 'rust-lang/rust.vim'
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Ansible
+Plug 'yaegassy/coc-ansible', {'do': 'yarn install --frozen-lockfile'}
+
 " Fuzzy finding in files.
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
