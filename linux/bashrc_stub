@@ -1,0 +1,14 @@
+# Append this to the bottom of ~/.bashrc
+alias nv=nvim
+alias ls='exa -lh'
+alias la='exa -lah'
+
+# Kittens
+alias icat="kitten icat"
+alias ssh="kitten ssh"
+
+# Pureline
+source ~/external_repos/pureline/pureline ~/.pureline.conf
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
