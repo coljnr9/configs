@@ -44,6 +44,9 @@ Plug 'SergioRibera/vim-screenshot', { 'do': 'npm install --prefix Renderizer' }
 " Neoscroll
 Plug 'karb94/neoscroll.nvim'
 
+" Leap
+Plug 'ggandor/leap.nvim'
+
 " Initialize the plugin system.
 call plug#end()
 
@@ -179,3 +182,6 @@ let g:rustfmt_fail_silently = 0
 nmap("<C-u>", "<C-u>zz");
 nmap("<C-d>", "<C-d>zz");
 lua require('neoscroll').setup()
+
+" Leap
+lua require('leap').add_default_mappings()
