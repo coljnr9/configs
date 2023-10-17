@@ -41,6 +41,9 @@ Plug 'tpope/vim-commentary'
 " Vim code screenshotter
 Plug 'SergioRibera/vim-screenshot', { 'do': 'npm install --prefix Renderizer' }
 
+" Neoscroll
+Plug 'karb94/neoscroll.nvim'
+
 " Initialize the plugin system.
 call plug#end()
 
@@ -170,3 +173,9 @@ let g:rustfmt_autosave = 1
 let g:rustfmt_emit_files = 1
 let g:rustfmt_fail_silently = 0
 
+
+" Scrolling improvements
+" From here https://blog.theodorc.no/posts/top5-nvim-plugins/
+nmap("<C-u>", "<C-u>zz");
+nmap("<C-d>", "<C-d>zz");
+lua require('neoscroll').setup()
