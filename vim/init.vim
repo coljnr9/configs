@@ -47,6 +47,11 @@ Plug 'karb94/neoscroll.nvim'
 " Leap
 Plug 'ggandor/leap.nvim'
 
+" JSX/TSX support
+Plug 'yuezk/vim-js'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'maxmellon/vim-jsx-pretty'
+
 " Initialize the plugin system.
 call plug#end()
 
@@ -74,6 +79,12 @@ let g:coc_global_extensions = [
     \ 'coc-pairs',
     \ 'coc-rust-analyzer',
     \ 'coc-yaml',
+    \ 'coc-tslint-plugin',
+    \ 'coc-tsserver',
+    \ 'coc-css',
+    \ 'coc-html',
+    \ 'coc-json',
+    \ 'coc-prettier'
     \ ]
 
 set updatetime=300
@@ -171,6 +182,9 @@ let g:indentLine_conceallevel = 0
 let g:indentLine_concealplus = 1
 let g:indentLine_setColors = 0
 autocmd BufRead,BufNewFile * let w:indentLine_basechar = repeat(' ', 100)
+
+" Try to auto-format javascript
+autocmd FileType javascript setlocal equalprg=js-beautify\ --stdin
 
 let g:rustfmt_autosave = 1
 let g:rustfmt_emit_files = 1
