@@ -12,3 +12,5 @@ source ~/external_repos/pureline/pureline ~/.pureline.conf
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# Weather report alias
+alias weather="curl wttr.in/Seattle"
