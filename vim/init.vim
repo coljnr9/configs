@@ -27,7 +27,7 @@ Plug 'yaegassy/coc-ansible', {'do': 'yarn install --frozen-lockfile'}
 " Fuzzy finding in files.
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'airblade/vim-rooter'
+" Plug 'airblade/vim-rooter'
 
 " Dracula theme.
 Plug 'Mofiqul/dracula.nvim'
@@ -46,11 +46,6 @@ Plug 'karb94/neoscroll.nvim'
 
 " Leap
 Plug 'ggandor/leap.nvim'
-
-" JSX/TSX support
-Plug 'yuezk/vim-js'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'maxmellon/vim-jsx-pretty'
 
 " Initialize the plugin system.
 call plug#end()
@@ -79,12 +74,6 @@ let g:coc_global_extensions = [
     \ 'coc-pairs',
     \ 'coc-rust-analyzer',
     \ 'coc-yaml',
-    \ 'coc-tslint-plugin',
-    \ 'coc-tsserver',
-    \ 'coc-css',
-    \ 'coc-html',
-    \ 'coc-json',
-    \ 'coc-prettier'
     \ ]
 
 set updatetime=300
@@ -140,10 +129,13 @@ endif
 
 " Find files using Telescope command-line sugar.
 " From the telescope github README
-nnoremap <leader>ff <cmd>Telescope find_files prompt_prefix=🔍<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep prompt_prefix=🔍<cr>
-nnoremap <leader>fb <cmd>Telescope buffers prompt_prefix=🔍<cr>
+nnoremap <leader>ff <cmd>Telescope find_files prompt_prefix=🔍 path_display={"truncate"}<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep prompt_prefix=🔍 path_display={"truncate"}<cr>
+nnoremap <leader>fs <cmd>Telescope grep_string prompt_prefix=🔍 path_display={"truncate"}<cr>
+nnoremap <leader>fb <cmd>Telescope buffers prompt_prefix=🔍 path_display={"truncate"}<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+
 
 " Apply code suggestions (I think Coc?)
 " From the coc guithub readme
@@ -182,9 +174,6 @@ let g:indentLine_conceallevel = 0
 let g:indentLine_concealplus = 1
 let g:indentLine_setColors = 0
 autocmd BufRead,BufNewFile * let w:indentLine_basechar = repeat(' ', 100)
-
-" Try to auto-format javascript
-autocmd FileType javascript setlocal equalprg=js-beautify\ --stdin
 
 let g:rustfmt_autosave = 1
 let g:rustfmt_emit_files = 1
