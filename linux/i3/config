@@ -53,8 +53,8 @@ bindsym $mod+$smod+Return exec $wm_setting_app_browser
 bindsym $mod+d exec $wm_setting_app_launcher
 
 # Split shortcuts
-bindsym $mod+v split vertical
-bindsym $mod+t split toggle
+bindsym $mod+v split toggle
+bindsym $mod+t layout toggle tabbed split
 
 # Run a window compositor (for effects like transparency or full VSync)
 exec_always --no-startup-id $wm_setting_app_compositor
@@ -214,8 +214,12 @@ bindsym $mod+$smod+q kill
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+$smod+r restart
 
+# Lock Screen with $mod+Escape
+bindsym $mod+Escape exec "/bin/bash -c 'i3lock -c ff5657;'"
+
 # Exit i3 (logs you out of your X session)
 bindsym $mod+$smod+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
 
 # Turn off focus-on-hover
 focus_follows_mouse no
