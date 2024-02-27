@@ -114,6 +114,8 @@ bindsym $mod+$smod+0 move container to $media
 # Move workspace to output n
 bindsym $mod+Ctrl+$wm_setting_key_left move workspace to output left
 bindsym $mod+Ctrl+$wm_setting_key_right move workspace to output right
+bindsym $mod+Ctrl+$wm_setting_key_up move workspace to output up 
+bindsym $mod+Ctrl+$wm_setting_key_down move workspace to output down 
 
 ### Window sizes and positions ###
 # Cange focus
@@ -220,13 +222,16 @@ bindsym $mod+Escape exec "/bin/bash -c 'i3lock -c ff5657;'"
 # Exit i3 (logs you out of your X session)
 bindsym $mod+$smod+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-
 # Turn off focus-on-hover
 focus_follows_mouse no
 
 
+# Handy workspace layouts on startup
 exec --no-startup-id i3-msg 'workspace "1: term"; exec /usr/bin/kitty;'
 exec --no-startup-id i3-msg 'workspace "2: web"; exec /usr/bin/firefox;'
+exec --no-startup-id i3-msg 'workspace "10: media"; exec /usr/bin/firefox --new-window https://music.youtube.com/;'
+exec --no-startup-id i3-msg 'workspace "9: chat"; exec /usr/bin/firefox --new-window https://mail.google.com/chat/u/0/;'
+exec --no-startup-id i3-msg 'exec /usr/bin/sleep 2;'
 
 assign [class="Slack"] "9: chat"
 assign [class="discord"] "9: chat"
@@ -234,8 +239,5 @@ assign [class="Element-Nightly"] "9: chat"
 assign [class="Spotify"] "10: media"
 assign [class="firefox"] "2: web"
 
-exec --no-startup-id i3-msg 'workspace "10: media"; exec /snap/bin/spotify;'
 exec --no-startup-id i3-msg 'workspace "9: chat"; exec /usr/bin/slack;'
-exec --no-startup-id i3-msg 'workspace "9: chat"; exec /usr/bin/element-desktop-nightly;'
-
 exec --no-startup-id i3-msg 'workspace "1: term";'
