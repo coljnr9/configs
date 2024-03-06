@@ -64,6 +64,10 @@ set smartindent               " Smart autoindenting when starting a new line
 " Set a line-length hint
 set colorcolumn=100
 
+" Break line at predefined characters
+set linebreak
+set showbreak=↪
+
 " Turn on spell checking - mostly for comments
 set spell spelllang=en_us
 
