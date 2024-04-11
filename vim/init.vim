@@ -12,7 +12,7 @@ Plug 'andymass/vim-matchup'
 
 " Telescope + deps
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
 
@@ -23,6 +23,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Ansible
 Plug 'yaegassy/coc-ansible', {'do': 'yarn install --frozen-lockfile'}
+
 
 " Fuzzy finding in files.
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -47,6 +48,9 @@ Plug 'karb94/neoscroll.nvim'
 " Leap
 Plug 'ggandor/leap.nvim'
 
+" Fugitive
+Plug 'tpope/vim-fugitive'
+
 " Initialize the plugin system.
 call plug#end()
 
@@ -55,11 +59,21 @@ call plug#end()
 colorscheme dracula
 
 " General Configurations
-set relativenumber            " Display line numbers
+set number                    " Display current line number
+set relativenumber            " Display relative line numbers
+
 set tabstop=4                 " A tab is four spaces
 set shiftwidth=4              " Number of spaces to use for autoindent
 set expandtab                 " Use spaces instead of tabs
 set smartindent               " Smart autoindenting when starting a new line
+
+set listchars=eol:⏎,tab:␉·,trail:␠,nbsp:⎵ " Better highlighting for white-space
+set list
+
+" Don't show mode using nvim (lightline takes care of this)
+set noshowmode
+" Set list chars to something more visible (comment color)
+highlight NonText guifg=#6272a4
 
 " Set a line-length hint
 set colorcolumn=100
@@ -75,6 +89,30 @@ let g:coc_global_extensions = [
     \ 'coc-rust-analyzer',
     \ 'coc-yaml',
     \ ]
+
+
+" Lightline configuration
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode',  'paste' ],
+      \             [ 'cocfunc','readonly', 'filen'] ],
+      \   'right': [['gitbranch', 'filetype', 'pos']]
+      \ },
+      \ 'component': {
+      \   'helloworld': 'test component!',
+      \   'filen': '%t',
+      \   'pos': '%l/%L'
+      \ },
+      \ 'component_function': {
+              \ 'gitbranch': 'FugitiveHead',
+              \ 'cocfunc': 'CocCurrentFunction'
+            \ }
+      \ }
+autocmd User CocStatusChange,CocDiagnosticChange let b:coc_current_function = get(b:, 'coc_current_function', '')
+function! CocCurrentFunction() 
+    return get(b:, 'coc_current_function', '')
+endfunction
 
 set updatetime=300
 set signcolumn=yes
@@ -135,7 +173,13 @@ nnoremap <leader>fs <cmd>Telescope grep_string prompt_prefix=🔍 path_display={
 nnoremap <leader>fb <cmd>Telescope buffers prompt_prefix=🔍 path_display={"truncate"}<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-
+" Mappings for CoCList
+" Show all diagnostics
+nnoremap <silent><nowait> <leader>d  :<C-u>CocList diagnostics<cr>
+" Find symbol of current document
+nnoremap <silent><nowait> <leader>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent><nowait> <leader>s  :<C-u>CocList -I symbols<cr>
 
 " Apply code suggestions (I think Coc?)
 " From the coc guithub readme
@@ -152,6 +196,10 @@ nmap <leader>as  <Plug>(coc-codeaction-source)
 " Apply the most preferred quickfix action to fix diagnostic on the current line
 nmap <leader>qf  <Plug>(coc-fix-current)
 
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " FZF Configuration
 " Enable per-command history.
