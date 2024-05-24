@@ -72,6 +72,7 @@ set list
 
 " Don't show mode using nvim (lightline takes care of this)
 set noshowmode
+set cursorline
 " Set list chars to something more visible (comment color)
 highlight NonText guifg=#6272a4
 
@@ -183,7 +184,7 @@ nnoremap <silent><nowait> <leader>d  :<C-u>CocList diagnostics<cr>
 " Find symbol of current document
 nnoremap <silent><nowait> <leader>o  :<C-u>CocList outline<cr>
 " Search workspace symbols
-nnoremap <silent><nowait> <leader>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <leader>s  :<C-u>CocList symbols<cr>
 
 " Apply code suggestions (I think Coc?)
 " From the coc guithub readme
