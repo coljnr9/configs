@@ -86,6 +86,8 @@ set showbreak=↪
 " Turn on spell checking - mostly for comments
 set spell spelllang=en_us
 
+let mapleader = "\<Space>"
+
 " Coc.nvim Configuration
 " Let g:coc_global_extensions be a list of extensions to be installed
 let g:coc_global_extensions = [
