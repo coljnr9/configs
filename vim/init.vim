@@ -51,6 +51,9 @@ Plug 'ggandor/leap.nvim'
 " Fugitive
 Plug 'tpope/vim-fugitive'
 
+" Hardtime
+Plug 'm4xshen/hardtime.nvim'
+
 " Initialize the plugin system.
 call plug#end()
 
@@ -243,3 +246,6 @@ lua require('neoscroll').setup()
 
 " Leap
 lua require('leap').add_default_mappings()
+
+" Hardtime
+lua require('hardtime').setup()
