@@ -54,6 +54,7 @@ Plug 'tpope/vim-fugitive'
 " Hardtime
 Plug 'm4xshen/hardtime.nvim'
 
+Plug 'tpope/vim-surround'
 " Initialize the plugin system.
 call plug#end()
 
