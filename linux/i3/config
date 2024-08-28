@@ -1,7 +1,7 @@
 ### Variables for settings (This makes changing them WAY easyer!) ###
 set $mod                             Mod4
 set $smod                            Shift
-set $wm_setting_font                 pango:Fira Code, Semibold 11
+set $wm_setting_font                 pango:Fira Code, Semibold 14
 set $wm_setting_gap_width            0
 set $wm_setting_gap_heigth           2
 set $wm_setting_border_size          2
@@ -21,9 +21,9 @@ set $wm_color_border_inactive_bg     #3B4252
 set $wm_color_border_inactive_fg     #D8DEE9
 set $wm_color_background             #2E3440
 
-set $bar_setting_position            top
+set $bar_setting_position            bottom 
 set $bar_setting_mode                dock
-set $bar_setting_font                pango:Fira Code, Semibold 11
+set $bar_setting_font                pango:Fira Code, Semibold 14
 set $bar_setting_separator           " - "
 set $bar_setting_statusCommand       i3status
 set $bar_setting_trayoutput          full
