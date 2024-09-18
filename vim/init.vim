@@ -18,7 +18,6 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCM
 
 " Rust
 Plug 'rust-lang/rust.vim'
-Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Ansible
@@ -56,11 +55,14 @@ Plug 'm4xshen/hardtime.nvim'
 
 Plug 'tpope/vim-surround'
 " Initialize the plugin system.
+
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 call plug#end()
 
 " Theme Setting.
 " Load the dracula theme.
-colorscheme dracula
 
 " General Configurations
 set number                    " Display current line number
@@ -250,3 +252,28 @@ lua require('leap').add_default_mappings()
 
 " Hardtime
 lua require('hardtime').setup()
+
+" Treesitter
+" https://github.com/nvim-treesitter/nvim-treesitter?tab=readme-ov-file#modules
+lua << EOF
+require('nvim-treesitter.configs').setup {
+  ensure_installed = { "python", "rust", "lua", "yaml", "json" },
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    },
+  },
+  indent = {
+    enable = true
+  },
+}
+EOF
+colorscheme dracula
