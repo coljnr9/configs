@@ -194,6 +194,14 @@ nnoremap <silent><nowait> <leader>o  :<C-u>CocList outline<cr>
 " Search workspace symbols
 nnoremap <silent><nowait> <leader>s  :<C-u>CocList symbols<cr>
 
+
+" Use Ctrl + direction to move between windows/tabs/etc
+nnoremap <C-H> <C-W>h
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
+
+
 " Apply code suggestions (I think Coc?)
 " From the coc guithub readme
 
