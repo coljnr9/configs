@@ -1,0 +1,10 @@
+{
+    "rust-analyzer.cargo.targetDir": true,
+    "python.formatting.provider": "black",
+    "python.formatting.blackPath": "/usr/bin/black",
+    "coc.preferences.formatOnSave": false,
+    "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+    "coc.source.buffer.enable": false,
+    "coc.source.around.enable": false
+
+}
